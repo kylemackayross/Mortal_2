@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -14,7 +15,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::all();
+        $users = User::all();
+        return  view('clients.index')->with('clients',$clients)->with('users',$users);
     }
 
     /**
@@ -24,7 +27,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('clients.create')->with('users',$users);
     }
 
     /**
@@ -35,7 +39,31 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client;
+        
+        // $client->name = $request->name;
+        $client->email = $request->email;
+        $client->type = $request->type;
+        $client->company = $request->company;
+        $client->gdl = $request->gdl;
+
+        $client->save();
+
+        foreach ($request->users as $user) {
+            $client->users()->attach($user);
+        }
+
+        if ($request->slack) {
+            $response = \Http::post('https://6619bac4-2117-4672-ad64-cc328ab63e5f.integration-hook.com', [
+                'client' => $client, 
+                'request' => $request,
+                'users' => $client->users, 
+            ]);
+        }
+
+        $users = User::all();
+        $clients = Client::all();
+        return view('clients.index')->with('clients',$clients)->with('users',$users)->with('message', 'Company saved successfully!');
     }
 
     /**
@@ -78,8 +106,10 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($client)
     {
-        //
+        $data = Client::where('id', $client)->first();
+        $data->delete();
+        return redirect()->back()->with('message', 'Client deleted successfully!');
     }
 }

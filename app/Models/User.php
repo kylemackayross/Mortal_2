@@ -58,4 +58,20 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    // CUSTOM functions
+    
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class);
+    }
+
+    public static function search($search)
+    {
+        return empty($search) ? static::query()
+            : static::query()->where('name', 'like', '%'.$search.'%')
+            ->orWhere('role', 'like', '%'.$search.'%')
+            ->orWhere('email', 'like', '%'.$search.'%');
+    }
 }
