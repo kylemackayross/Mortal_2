@@ -24,7 +24,7 @@
     <body class="font-poppins antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100 bg-gradient-to-r from-mo_pur/20 to-mo_red/50">
+        <div class="min-h-screen bg-gray-100 bg-gradient-to-r from-mo_pur/5 to-mo_red/20">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->

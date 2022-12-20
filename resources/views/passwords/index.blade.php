@@ -6,7 +6,7 @@
 
     <div class="flex justify-between">
         <div>
-            <a href="/" class="underline underline-offset-4 text-center text-lg font-semibold text-mo_red hover:text-mo_dar dark:hover:text-white">Back</a>
+            <a href="/" class="underline underline-offset-4 text-center text-lg font-semibold text-mo_red hover:text-mo_dar">Back</a>
         </div>
         <div class="text-center">
             <h3 class="text-lg font-semibold text-mo_ora">Dashboard</h3>
@@ -19,45 +19,7 @@
     </div>
     <div>
         <div>
-
             <livewire:passwords-table>
-
-                {{-- @if (count($users) == 0)
-                    <h2 class="text-xl">No data to display</h2>
-                @else
-                    <table class="table-auto w-full mb-6">
-                        <thead>
-                            <tr>
-                                <th class="px-6 py-3 text-xs tracking-wider text-left uppercase">ID</th>
-                                <th class="px-6 py-3 text-xs tracking-wider text-left uppercase">Name</th>
-                                <th class="px-6 py-3 text-xs tracking-wider text-left uppercase">Role</th>
-                                <th class="px-6 py-3 text-xs tracking-wider text-left uppercase">Email
-                                </th>
-                                <th class="px-6 py-3 text-xs tracking-wider text-left uppercase">Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <td class="border px-4 py-2">{{ $user->id }}</td>
-                                    <td class="border px-4 py-2">{{ $user->name }}</td>
-                                    <td class="border px-4 py-2">{{ $user->role }}</td>
-                                    <td class="border px-4 py-2">{{ $user->email }}</td>
-                                    <td class="border px-4 py-2">
-                                        <form action="/user/delete/{{ $user->id }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="btn btn-danger btn-sm">delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                @endif --}}
-
         </div>
     </div>
 

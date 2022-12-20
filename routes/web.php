@@ -42,6 +42,7 @@ Route::middleware([
     Route::get('/clients', 'App\Http\Controllers\ClientController@index')->middleware('auth')->name('clients');
     Route::get('/client/create', 'App\Http\Controllers\ClientController@create')->middleware('auth');
     Route::post('/client/store', 'App\Http\Controllers\ClientController@store')->middleware('auth');
+    Route::post('/client/edit/{id}', 'App\Http\Controllers\ClientController@update')->middleware('auth');
     Route::delete('/client/delete/{id}', 'App\Http\Controllers\ClientController@destroy')->middleware('auth');
 
     //PASSWORDS

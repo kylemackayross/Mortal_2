@@ -95,9 +95,18 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+
+        $client->email = $request->email;
+        $client->type = $request->type;
+        $client->company = $request->company;
+        $client->gdl = $request->gdl;
+
+        $client->save();
+
+        return redirect()->back()->with('message', 'Client saved successfully!');
     }
 
     /**
