@@ -43,6 +43,9 @@
                                 <option value="IS">IS</option>
                                 <option value="Tech">Tech</option>
                                 <option value="Copywriter">Copywriter</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Brand Specialist">Brand Specialist</option>
+                                <option value="Project Manager">Project Manager</option>
                                 <option value="Admin">Admin</option>
                             </select>
                             {{-- <input type="text" name="role" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Role" required> --}}
@@ -110,6 +113,9 @@
                                     <option value="IS">IS</option>
                                     <option value="Tech">Tech</option>
                                     <option value="Copywriter">Copywriter</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Brand Specialist">Brand Specialist</option>
+                                    <option value="Project Manager">Project Manager</option>
                                     <option value="Admin">Admin</option>
                                 </select>
                                 {{-- <input type="text" name="role" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Role" required> --}}

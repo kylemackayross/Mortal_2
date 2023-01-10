@@ -39,6 +39,8 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        // $data = $request;
+        // return $request;
         $client = new Client;
         
         // $client->name = $request->name;
@@ -46,6 +48,13 @@ class ClientController extends Controller
         $client->type = $request->type;
         $client->company = $request->company;
         $client->gdl = $request->gdl;
+        // $client->csm = $request->csm;
+        // $client->is = $request->is;
+        // $client->tech = $request->tech;
+        // $client->designer = $request->designer;
+        // $client->invoice = $request->invoice;
+        // $client->agreement = $request->agreement;
+        // $client->message = $request->message;
 
         $client->save();
 
@@ -56,14 +65,20 @@ class ClientController extends Controller
         if ($request->slack) {
             $response = \Http::post('https://6619bac4-2117-4672-ad64-cc328ab63e5f.integration-hook.com', [
                 'client' => $client, 
-                'request' => $request,
+                'csm' => $request->csm,
+                'is' => $request->is,
+                'designer' => $request->designer,
+                'tech' => $request->tech,
+                'invoice' => $request->invoice,
+                'agreement' => $request->agreement,
+                'message' => $request->message,
                 'users' => $client->users, 
             ]);
         }
 
         $users = User::all();
         $clients = Client::all();
-        return view('clients.index')->with('clients',$clients)->with('users',$users)->with('message', 'Company saved successfully!');
+        return redirect('/clients')->with('message', 'Client saved successfully!');
     }
 
     /**

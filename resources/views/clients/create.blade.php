@@ -50,36 +50,36 @@
             <div class="grid sm:grid-cols-2 gap-4 py-2">
                 <div class="">
                     <select type="text" name="csm" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="CSM">
-                        <option val="">CSM</option>
+                        <option value="">CSM</option>
                         @foreach ($users as $user)
-                        <option val="{{ $user->email }}">{{ $user->name }}</option>
+                        <option value="{{ $user->email }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
     
                 <div class="">
                     <select type="text" name="is" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="IS">
-                        <option val="">IS</option>
+                        <option value="">IS</option>
                         @foreach ($users as $user)
-                        <option val="{{ $user->email }}">{{ $user->name }}</option>
+                        <option value="{{ $user->email }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="">
                     <select type="text" name="tech" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Tech">
-                        <option val="">Tech</option>
+                        <option value="">Tech</option>
                         @foreach ($users as $user)
-                        <option val="{{ $user->email }}">{{ $user->name }}</option>
+                        <option value="{{ $user->email }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
     
                 <div class="">
                     <select type="text" name="designer" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Designer">
-                        <option val="">Designer</option>
+                        <option value="">Designer</option>
                         @foreach ($users as $user)
-                        <option val="{{ $user->email }}">{{ $user->name }}</option>
+                        <option value="{{ $user->email }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
