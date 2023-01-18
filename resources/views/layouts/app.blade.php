@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Mortal') }}</title>
 
         <!-- Custom -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
@@ -15,7 +15,13 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+
+        <link rel="preload" as="style" href="https://mortal.marketsonline.co.za/build/assets/app.a3ce8b2c.css">
+        <link rel="modulepreload" href="https://mortal.marketsonline.co.za/build/assets/app.999357ab.js">
+        <link rel="stylesheet" href="https://mortal.marketsonline.co.za/build/assets/app.a3ce8b2c.css">
+        <script type="module" src="https://mortal.marketsonline.co.za/build/assets/app.999357ab.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
         <!-- Styles -->

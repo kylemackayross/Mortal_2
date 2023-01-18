@@ -12,11 +12,18 @@
 
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+<<<<<<< HEAD
 
         <link rel="preload" as="style" href="./build/assets/app.a3ce8b2c.css">
         <link rel="modulepreload" href="./build/assets/app.999357ab.js">
         <link rel="stylesheet" href="./build/assets/app.a3ce8b2c.css">
         <script type="module" src="./build/assets/app.999357ab.js"></script>
+=======
+        <link rel="preload" as="style" href="https://mortal.marketsonline.co.za/build/assets/app.a3ce8b2c.css">
+        <link rel="modulepreload" href="https://mortal.marketsonline.co.za/build/assets/app.999357ab.js">
+        <link rel="stylesheet" href="https://mortal.marketsonline.co.za/build/assets/app.a3ce8b2c.css">
+        <script type="module" src="https://mortal.marketsonline.co.za/build/assets/app.999357ab.js"></script>
+>>>>>>> 7a1863c90faad91b13265455bbc83b45ebf32a73
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
