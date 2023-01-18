@@ -37,18 +37,20 @@ class PasswordsTable extends Component
             }
         }
 
+        $client_users = Client::whereIn('id', $ids)->get();
+
         if ($this->company != "") {
             return view('livewire.passwords-table', [
                 'passwords' => Password::search($this->search)->where('client_id', $this->company)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->per_page),
-            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $ids);
+            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
         } else {
             return view('livewire.passwords-table', [
                 'passwords' => Password::search($this->search)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->per_page),
-            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $ids);
+            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
         }
         
     }

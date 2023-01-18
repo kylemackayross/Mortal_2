@@ -175,11 +175,13 @@
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-folder-open text-mo_dar"></i></button>
                                 </form>
                                 @else
+                                @if (Auth::user()->role == "Admin")
                                 <form action="/password/archive/{{ $password->id }}" method="post">
                                     @csrf
                                     
                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-folder text-mo_yel"></i></button>
                                 </form>
+                                @endif
                                 @endif
                                 <button type="submit" class="btn btn-danger btn-sm edit-row" data-row="#edit-row-{{ $password->id }}"><i class="fas fa-cog text-mo_blu"></i></button>
                             </div>

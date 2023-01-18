@@ -52,5 +52,6 @@ Route::middleware([
     Route::post('/password/edit/{id}', 'App\Http\Controllers\PasswordController@update')->middleware('auth');
     Route::post('/password/archive/{id}', 'App\Http\Controllers\PasswordController@archive')->middleware('auth');
     Route::post('/password/unarchive/{id}', 'App\Http\Controllers\PasswordController@unarchive')->middleware('auth');
+    // Route::get('/passwords/get/all', 'App\Http\Controllers\PasswordController@getall');
 });
 

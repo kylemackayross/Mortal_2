@@ -129,4 +129,30 @@ class PasswordController extends Controller
         return redirect()->back()->with('message', 'Password unarchived successfully!');
     }
 
+    public function getall()
+    {
+        $clients = Client::all();
+
+        $ids = array();
+        $admin_ids = array();
+
+        foreach ($clients as $client) {
+            foreach ($client->users as $user) {
+                if (\Auth::user()->role == "Admin") {
+                    array_push($admin_ids, $client->id);
+                } elseif ($user->id == \Auth::user()->id) {
+                    array_push($ids, $client->id);
+                }
+            }
+        }
+
+        $clients_users = Client::whereIn('id', $ids)->get();
+
+        if (\Auth::user()->role == "Admin") {
+            return $clients;
+        } else {
+            return $clients_users;
+        }
+    }
+
 }

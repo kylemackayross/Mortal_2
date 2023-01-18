@@ -103,7 +103,7 @@
             <div class="py-2">
                 {{-- <input type="text" name="invoice" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Invoice Received"> --}}
                 <select type="text" name="invoice" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Invoice Received">
-                    <option>Invoice Received?</option>
+                    <option>Invoice Paid?</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                     <option value="Pending">Pending</option>

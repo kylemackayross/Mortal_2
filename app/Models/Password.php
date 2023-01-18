@@ -9,6 +9,11 @@ class Password extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        // 'new_password' => 'encrypted',
+        // 'old_password' => 'encrypted',
+    ];
+
     public function client()
     {
         return $this->belongsTo(Client::class);
@@ -20,6 +25,7 @@ class Password extends Model
             : static::query()->where('name', 'like', '%'.$search.'%')
             ->orWhere('service', 'like', '%'.$search.'%')
             ->orWhere('address', 'like', '%'.$search.'%')
+            ->orWhere('username', 'like', '%'.$search.'%')
             ->orWhere('client_id', 'like', '%'.$search.'%');
     }
 }
