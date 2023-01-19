@@ -26,6 +26,10 @@ Route::middleware([
         return view('dash-view');
     })->name('dashboard');
 
+    Route::get('/typeform', function () {
+        return view('typeform.index');
+    })->name('Typeform');
+
     // USERS
     Route::get('/users', 'App\Http\Controllers\UserController@index')->middleware('auth')->name('users');
 
@@ -53,5 +57,18 @@ Route::middleware([
     Route::post('/password/archive/{id}', 'App\Http\Controllers\PasswordController@archive')->middleware('auth');
     Route::post('/password/unarchive/{id}', 'App\Http\Controllers\PasswordController@unarchive')->middleware('auth');
     // Route::get('/passwords/get/all', 'App\Http\Controllers\PasswordController@getall');
+
+    Route::get('/filemanager', 'App\Http\Controllers\FileManagerController@index')->middleware('auth');
+
+    // QUICKLINKS
+    Route::get('/quicklinks', 'App\Http\Controllers\QuickLinkController@index')->middleware('auth');
+    Route::post('/quicklink/create', 'App\Http\Controllers\QuickLinkController@store')->middleware('auth');
+    Route::delete('/quicklink/delete/{id}', 'App\Http\Controllers\QuickLinkController@destroy')->middleware('auth');
+    Route::post('/quicklink/edit/{id}', 'App\Http\Controllers\QuickLinkController@update')->middleware('auth');
+
+    // FEEDBACK
+    Route::post('/report/create', 'App\Http\Controllers\FeedbackController@store')->middleware('auth');
+
+    Route::post('/winner', 'App\Http\Controllers\FeedbackController@winner');
 });
 

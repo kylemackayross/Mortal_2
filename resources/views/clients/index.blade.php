@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="flex justify-between  select-none">
+    <div class="flex justify-between select-none">
         <div>
             <a href="/" class="underline underline-offset-4 text-center text-lg font-semibold text-mo_red hover:text-mo_dar">Back</a>
         </div>
