@@ -21,6 +21,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> --}}
+        <script src="http://localhost:8000/assets\tinymce\js\tinymce\tinymce.min.js"></script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

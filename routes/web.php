@@ -70,5 +70,16 @@ Route::middleware([
     Route::post('/report/create', 'App\Http\Controllers\FeedbackController@store')->middleware('auth');
 
     Route::post('/winner', 'App\Http\Controllers\FeedbackController@winner');
+
+    Route::get('/website-calculator', function ()
+    {
+        return view('website-calculator.index');
+    })->middleware('auth');
+
+    Route::get('/processes', function ()
+    {
+        return view('processes.index');
+    })->middleware('auth');
+    Route::post('/processes');
 });
 

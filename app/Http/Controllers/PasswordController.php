@@ -106,9 +106,9 @@ class PasswordController extends Controller
      * @param  \App\Models\Password  $password
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Password $password)
+    public function destroy($id)
     {
-        $data = Password::where('id', $password)->first();
+        $data = Password::where('id', $id)->first();
         $data->delete();
         return redirect()->back()->with('message', 'Password deleted successfully!');
     }

@@ -17,6 +17,7 @@ class PasswordsTable extends Component
     public $orderAsc = true;
     public $incomplete = false;
     public $company = "";
+    public $show = "all";
 
     public function render()
     {       
@@ -39,19 +40,57 @@ class PasswordsTable extends Component
 
         $client_users = Client::whereIn('id', $ids)->get();
 
-        if ($this->company != "") {
-            return view('livewire.passwords-table', [
-                'passwords' => Password::search($this->search)->where('client_id', $this->company)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
-                ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-                ->simplePaginate($this->per_page),
-            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
-        } else {
-            return view('livewire.passwords-table', [
-                'passwords' => Password::search($this->search)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
-                ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
-                ->simplePaginate($this->per_page),
-            ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+        if ($this->show == "all"){
+
+            if ($this->company != "") {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->where('client_id', $this->company)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            } else {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            }
+
+        } elseif ($this->show == "archived") {
+
+            if ($this->company != "") {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->where('client_id', $this->company)->where('is_archived', true)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            } else {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->where('is_archived', true)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            }
+
+        } elseif ($this->show == "unarchived") {
+
+            if ($this->company != "") {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->where('client_id', $this->company)->where('is_archived', false)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            } else {
+                return view('livewire.passwords-table', [
+                    'passwords' => Password::search($this->search)->where('is_archived', false)->whereIn('client_id', \Auth::user()->role == "Admin" ? $admin_ids : $ids)
+                    ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+                    ->simplePaginate($this->per_page),
+                ])->with('clients',\Auth::user()->role == "Admin" ? $clients : $client_users);
+            }
+
         }
+
+        
         
     }
 }

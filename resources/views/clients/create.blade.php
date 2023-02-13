@@ -111,7 +111,7 @@
             </div>
 
             <div class="py-2">
-                <textarea type="text" name="message" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Additional Notes or Message"></textarea>
+                <textarea id="tinymce" type="text" name="message" class="p-4 text-lg shadow-sm border-mo_dar ring-2 ring-mo_dar focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 placeholder:text-mo_dar bg-white placeholder:font-medium w-full" placeholder="Additional Notes or Message"></textarea>
             </div>
 
             <div class="py-2">
@@ -129,5 +129,10 @@
 
         </form>
     </div>
-
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea#tinymce',
+            height: 600
+        });
+    </script>
 @endsection
