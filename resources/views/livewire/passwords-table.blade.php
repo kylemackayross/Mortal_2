@@ -7,7 +7,7 @@
         <div class="mx-1 w-1/4">
             {{-- <input wire:model.debounce.300ms="search" type="search"
             class="h-12 block w-full bg-white text-gray-700 border-gray-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-mo_red focus:ring-mo_red"  placeholder="Search clients..."> --}}
-            <select wire:model="company" class="h-12 block w-full bg-white text-gray-700 border-gray-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-mo_red focus:ring-mo_red" id="grid-state">
+            <select wire:model="company" class="select-single h-12 block w-full bg-white text-gray-700 border-gray-200 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-mo_red focus:ring-mo_red" id="grid-state">
                 <option value="">Company</option>
                 @foreach ($clients->sortBy('company') as $client)
                     <option value="{{ $client->id }}">{{ $client->company }}</option>

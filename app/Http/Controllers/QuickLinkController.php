@@ -85,8 +85,10 @@ class QuickLinkController extends Controller
      * @param  \App\Models\QuickLink  $quickLink
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QuickLink $quickLink)
+    public function destroy($id)
     {
-        //
+        $data = QuickLink::where('id', $id)->first();
+        $data->delete();
+        return redirect()->back()->with('message', 'Quicklink deleted successfully!');
     }
 }

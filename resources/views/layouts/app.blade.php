@@ -30,7 +30,21 @@
         <link rel="stylesheet" href="https://mortal.marketsonline.co.za/build/assets/app.a3ce8b2c.css">
         <script type="module" src="https://mortal.marketsonline.co.za/build/assets/app.999357ab.js"></script> --}}
 
-        
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<style>
+
+.select2-selection {
+   padding: 0.75rem;
+    height: 3rem!important;
+    border-radius: 0!important;
+}
+.select2-selection__rendered{
+    line-height: unset!important;
+}
+
+</style>
 
         <!-- Styles -->
         @livewireStyles
@@ -268,6 +282,11 @@
                 
             });
 
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('.select-single').select2();
+            });
         </script>
 
         @stack('modals')
