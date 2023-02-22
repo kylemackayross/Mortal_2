@@ -24,14 +24,14 @@
         <div class="mt-4">
             <form action="/attach" method="post" class="justify-center flex gap-4">
                 @csrf
-                <select class="h-full w-1/3 text-mo_dar px-4 py-2" name="user" required>
+                <select class="select-single h-full w-1/3 text-mo_dar px-4 py-2" name="user" required>
                     <option value="">User</option>
                     @foreach ($users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
                 </select>
 
-                <select class="h-full w-1/3 text-mo_dar px-4 py-2" name="client" required>
+                <select class="select-single h-full w-1/3 text-mo_dar px-4 py-2" name="client" required>
                     <option value="">Client</option>
                     @foreach ($clients as $client)
                         <option value="{{ $client->id }}">{{ $client->company }}</option>

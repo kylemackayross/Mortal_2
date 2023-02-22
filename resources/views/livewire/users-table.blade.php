@@ -36,7 +36,7 @@
                         </td>
 
                         <td class="truncate border border-mo_gra/10">
-                            <select type="text" name="role" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Role" required>
+                            <select type="text" name="role" class="select-single h-full w-full text-mo_dar px-4 py-2" placeholder="Role" required>
                                 <option value="">Role</option>
                                 <option value="CSM">CSM</option>
                                 <option value="Designer">Designer</option>
@@ -52,9 +52,9 @@
                         </td>
 
                         <td class="truncate border border-mo_gra/10">
+                            <select name="clients[]" multiple="multiple" class="select-single form-control mb-4 text-mo_dar" placeholder="lol">
                             @foreach ($clients as $client)
-                                <div><input type="checkbox" name="clients[]" class="form-control mb-4 text-mo_dar" value="{{ $client->id }}">
-                                <label for="clients[]">{{ $client->company }}</label></div>
+                                <option value="{{ $client->id }}">{{ $client->company }}</option>
                             @endforeach
                         </td>
 
@@ -106,7 +106,7 @@
                             </td>
     
                             <td class="truncate border border-mo_gra/10">
-                                <select type="text" name="role" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Role" value="{{$user->role}}" required>
+                                <select type="text" name="role" class="select-single h-full w-full text-mo_dar px-4 py-2" placeholder="Role" value="{{$user->role}}" required>
                                     <option value="">Role</option>
                                     <option value="CSM">CSM</option>
                                     <option value="Designer">Designer</option>

@@ -49,7 +49,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-poppins antialiased">
+    <body class="font-poppins antialiased overflow-x-hidden">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100 bg-gradient-to-r from-mo_pur/5 to-mo_red/20">

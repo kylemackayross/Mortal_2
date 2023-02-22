@@ -57,7 +57,7 @@
                             </td>
 
                             <td class="truncate border border-mo_gra/10 px-4 py-2">
-                                <input type="text" name="company" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Role" value="{{$client->company}}" required>
+                                <input type="text" name="company" class="h-full w-full text-mo_dar px-4 py-2" placeholder="Company" value="{{$client->company}}" required>
                             </td>
     
                             <td class="truncate border border-mo_gra/10 px-4 py-2">
